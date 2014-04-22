@@ -39,7 +39,7 @@ data.ColsWithMeanOrStd <- data[,colsWithMeanOrStd]
 #Requirement 5: Create a second, independent tidy data set with the average of each variable for each activity and each subject. 
 library(plyr)
 library(reshape2)
-data.melt <- melt(data, id.vars=c('Activity','Subject'))
+data.melt <- melt(data.ColsWithMeanOrStd, id.vars=c('Activity','Subject'))
 data.summary <- dcast(data.melt, Activity + Subject ~ variable, mean)
 
 #Write Output to Disk
